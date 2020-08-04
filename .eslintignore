@@ -1,0 +1,7 @@
+**/coverage/*
+**/dist/*
+**/build/*
+**/coverage/*
+**/node_modules/*
+**/.docz
+**/*.d.ts

@@ -1,0 +1,24 @@
+language: node_js
+cache: npm
+notifications:
+  email: false
+node_js:
+  - lts/*
+  - node
+install: npm install
+branches:
+  only:
+    - master
+    - next
+    - beta
+    - alpha
+
+jobs:
+  include:
+    - stage: testing
+      #if: branch in (master, develop)
+      node_js: lts/*
+      env:
+        - TEST=test
+      script:
+        - npm run test
