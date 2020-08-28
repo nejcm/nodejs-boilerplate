@@ -1,4 +1,5 @@
 import {Request, Response, Router} from 'express';
+import config from '../../config';
 import {isAuth} from '../middlewares';
 import authRoutes from './auth';
 import faqRoutes from './faq';
@@ -16,14 +17,20 @@ function getRoutes(): Router {
     },
   );
 
-  router.use('/auth', authRoutes());
+  // api scope
+  router.use(config.api.prefix + config.api.version, () => {
+    const apiRouter = Router();
 
-  router.use('/user', isAuth, userRoutes());
+    apiRouter.use('/auth', authRoutes());
 
-  router.use('/faq', faqRoutes());
+    apiRouter.use('/user', isAuth, userRoutes());
 
-  // additional routes go here
+    apiRouter.use('/faq', faqRoutes());
 
+    // additional api routes go here
+
+    return apiRouter;
+  });
   return router;
 }
 export {getRoutes};

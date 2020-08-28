@@ -12,7 +12,6 @@ import morgan from 'morgan';
 import path from 'path';
 import {response} from '../api/response';
 import {getRoutes} from '../api/routes';
-import config from '../config';
 import logger from './logger';
 //import multer from 'multer';
 
@@ -60,7 +59,7 @@ export default ({app}: {app: Express}): Express => {
 
   // load API routes
 
-  app.use(config.api.prefix + config.api.version, getRoutes());
+  app.use(getRoutes());
 
   // validation errors
   app.use(errors());
