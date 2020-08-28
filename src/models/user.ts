@@ -5,14 +5,14 @@ const UserSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, 'Please enter a full name'],
+      required: [true, 'Please enter a full name.'],
       index: true,
     },
 
     email: {
       type: String,
       lowercase: true,
-      unique: true,
+      trim: true,
       index: true,
     },
 
@@ -37,7 +37,11 @@ const UserSchema = new Schema(
   {timestamps: true},
 );
 
-UserSchema.methods.getGender = function (this: User) {
+UserSchema.path('email').validate(async (value: string) => {
+  return !(await mongoose.models.User.countDocuments({email: value}));
+}, 'Email already exists.');
+
+UserSchema.methods.getGender = function getGender(this: User) {
   switch (this.gender) {
     case 0:
       return 'Male';

@@ -20,7 +20,7 @@ interface ResponseError extends Error {
   status: number;
 }
 
-export default async ({app}: {app: Express}): Promise<Express> => {
+export default ({app}: {app: Express}): Express => {
   // health check endpoints
   app.get('/status', (_req, res) => res.status(200).end());
   app.head('/status', (_req, res) => res.status(200).end());
@@ -59,6 +59,7 @@ export default async ({app}: {app: Express}): Promise<Express> => {
   app.use(morgan('combined'));
 
   // load API routes
+
   app.use(config.api.prefix + config.api.version, getRoutes());
 
   // validation errors

@@ -1,8 +1,8 @@
-import {NextFunction, Request, Response} from 'express';
-import {Container} from 'typedi';
-import {Logger} from 'winston';
-import {response} from '../api/response';
-import {UserInputDTO} from '../interfaces/User';
+import { NextFunction, Request, Response } from 'express';
+import { Container } from 'typedi';
+import { Logger } from 'winston';
+import { response } from '../api/response';
+import { UserInputDTO } from '../interfaces/User';
 import AuthService from '../services/auth';
 
 export async function register(
@@ -38,11 +38,11 @@ export async function login(
   }
 }
 
-export async function logout(
+export function logout(
   _req: Request,
   res: Response,
   next: NextFunction,
-): Promise<void | Response> {
+): void | Response {
   const logger = Container.get<Logger>('logger');
   try {
     // TODO: authService.Logout(req.user)

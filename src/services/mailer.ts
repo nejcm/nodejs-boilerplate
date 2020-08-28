@@ -1,7 +1,7 @@
-import {SendMailOptions, SentMessageInfo, Transporter} from 'nodemailer';
-import {Inject, Service} from 'typedi';
+import { SendMailOptions, SentMessageInfo, Transporter } from 'nodemailer';
+import { Inject, Service } from 'typedi';
 import config from '../config';
-import {User} from '../interfaces/User';
+import { User } from '../interfaces/User';
 
 export interface Response {
   success: boolean;
@@ -15,7 +15,7 @@ export interface Response {
 export default class EmailService {
   constructor(@Inject('mailer') private mailer: Transporter | undefined) {}
 
-  public async SendWelcomeEmail(user: Partial<User>): Promise<Response> {
+  public SendWelcomeEmail(user: Partial<User>): Promise<Response> {
     if (!user.email) {
       throw new Error('No email provided');
     }
@@ -32,14 +32,15 @@ export default class EmailService {
     return this.Send(data);
   }
 
-  public async StartEmailSequence(
+  public StartEmailSequence(
     _sequence: string,
     user: Partial<User>,
   ): Promise<Response> {
     if (!user.email) {
       throw new Error('No email provided');
     }
-    return {success: true, status: 200};
+    
+    return Promise.resolve({success: true, status: 200});
   }
 
   protected async Send(data: SendMailOptions): Promise<Response> {
@@ -50,7 +51,7 @@ export default class EmailService {
         message: 'Mailer service is undefined.',
       };
     }
-    const response: SentMessageInfo = this.mailer.sendMail(data);
+    const response: SentMessageInfo = await this.mailer.sendMail(data);
     return {success: true, status: 200, ...response};
   }
 }

@@ -1,7 +1,7 @@
-import {Server, startServer} from '../start';
+import { Server, startServer } from '../start';
 
-let server: Server;
-let baseURL;
+let server: Server,
+ baseURL: string;
 beforeAll(async () => {
   server = await startServer();
   const address = server.address();

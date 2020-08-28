@@ -28,7 +28,9 @@ This boilerplate is not production ready.
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors][all-contributors-badge]](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -164,26 +166,15 @@ Special thanks to the open source community.
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-
 <table>
   <tr>
-    <td align="center">
-      <a href="https://github.com/nejcm">
-        <img src="https://avatars3.githubusercontent.com/u/1865210?v=3" width="100px" alt="Nejc"/>
-        <br />
-        <sub><b>Nejc Muršič</b></sub>
-      </a>
-      <br />
-      <a href="https://github.com/nejcm/nodejs-boilerplate/commits?author=nejcm" title="Code">💻</a> 
-      <a href="https://github.com/nejcm/nodejs-boilerplate/commits?author=nejcm" title="Documentation">📖</a> 
-      <a href="#infra" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> 
-      <a href="https://github.com/nejcm/nodejs-boilerplate/commits?author=nejcm" title="Tests">⚠️</a>
-    </td>
+    <td align="center"><a href="https://github.com/nejcm"><img src="https://avatars3.githubusercontent.com/u/1865210?v=4" width="100px" alt="Nejc"/><br /><sub><b>Nejc Muršič</b></sub></a><br /><a href="https://github.com/nejcm/nodejs-boilerplate/commits?author=nejcm" title="Code">💻</a> <a href="https://github.com/nejcm/nodejs-boilerplate/commits?author=nejcm" title="Documentation">📖</a> <a href="#infra" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/nejcm/nodejs-boilerplate/commits?author=nejcm" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -205,7 +196,6 @@ Reach out to us at one of the following places:
 
 <!-- prettier-ignore-start -->
 
-[all-contributors-badge]: https://img.shields.io/badge/all_contributors-1-orange.svg
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [bugs]: https://github.com/nejcm/nodejs-boilerplate/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Acreated-desc
 [build-badge]: https://img.shields.io/travis/com/nejcm/nodejs-boilerplate.svg

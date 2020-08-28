@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {User as IUser} from '../../interfaces/User';
+import { User as IUser } from '../../interfaces/User';
 import User from '../user';
 
 describe('User model', () => {
@@ -12,7 +12,7 @@ describe('User model', () => {
     });
   });
 
-  afterAll(async () => {
+  afterAll(() => {
     mongoose.connection.close();
   });
 
@@ -22,7 +22,7 @@ describe('User model', () => {
     expect(user.validate).toThrow();
   });
 
-  it('should save a user', async () => {
+  it('should save a user', () => {
     expect.assertions(3);
 
     const user: IUser = new User({

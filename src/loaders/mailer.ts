@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import config from '../config';
 
-export default async (): Promise<Mail | undefined> => {
+export default (): Mail | undefined => {
   const {host, port = '', user = '', pass = '', secure} = config.mail;
   if (!host) return undefined;
 
@@ -10,7 +10,7 @@ export default async (): Promise<Mail | undefined> => {
   // examples: https://github.com/accimeesterlin/nodemailer-examples
   const transport = nodemailer.createTransport({
     host,
-    port: parseInt(port, 10),
+    port: +port,
     secure,
     auth: {
       user,

@@ -46,6 +46,7 @@ function setupCloseOnExit(server: Server) {
       .catch((e: Error) => {
         logger.warn('Something went wrong closing the server', e.stack);
       });
+    // eslint-disable-next-line no-process-exit
     if (options.exit) process.exit();
   }
   // do something when app is closing

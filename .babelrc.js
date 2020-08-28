@@ -1,4 +1,4 @@
-const pkg = require('./package.json');
+import pkg from "./package.json";
 
 module.exports = {
   presets: [

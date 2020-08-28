@@ -9,14 +9,14 @@ install: npm install
 branches:
   only:
     - master
-    - next
+    - develop
     - beta
     - alpha
 
 jobs:
   include:
     - stage: testing
-      #if: branch in (master, develop)
+      if: type != pull_request
       node_js: lts/*
       env:
         - TEST=test

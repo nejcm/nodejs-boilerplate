@@ -1,3 +1,5 @@
+// TODO: split this file into separate configs (db, cache, log, auth, mail,...)
+
 import dotenv from 'dotenv';
 import {isTrue} from '../helpers/boolean';
 
@@ -14,7 +16,7 @@ if (!envFound) {
 
 export default {
   environment: process.env.NODE_ENV,
-  port: parseInt(process.env.PORT || '3001', 10),
+  port: +(process.env.PORT || '3001'),
 
   jwtSecret: process.env.JWT_SECRET || '',
 
@@ -22,22 +24,20 @@ export default {
     level: process.env.LOG_LEVEL || 'silly',
   },
 
-  database: {
-    mongodb: {
-      url: process.env.MONGODB_URI,
-    },
+  mongodb: {
+    url: process.env.MONGODB_URI,
+    port: process.env.MONGO_PORT,
+    host: process.env.MONGO_HOST,
+    db: process.env.MONGO_INITDB_DATABASE,
+    user: process.env.MONGO_USERNAME,
+    pass: process.env.MONGO_PASSWORD,
   },
 
   redis: {
     enabled: process.env.REDIS?.toLowerCase() === 'true',
     port: process.env.REDIS_PORT,
     host: process.env.REDIS_HOST,
-  },
-
-  agenda: {
-    dbCollection: process.env.AGENDA_DB_COLLECTION,
-    pooltime: process.env.AGENDA_POOL_TIME,
-    concurrency: parseInt(process.env.AGENDA_CONCURRENCY || '', 10),
+    password: process.env.REDIS_PASSWORD,
   },
 
   api: {
